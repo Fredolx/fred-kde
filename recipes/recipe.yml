@@ -12,33 +12,17 @@ modules:
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
   - type: dnf
-    install:
+    remove:
       packages:
-        - kate
-        - vim
-        - podman
-        - ripgrep
-        - uv
-        - scrcpy
-        - mpv
-        - syncplay
-        - ddclient
-        - croc
-        - steam-devices
-        - podman-docker
+        - "*akonadi*"
+        - plymouth
+        - plasma-discover
 
   - type: dnf
     group-install:
       packages:
         - development-tools
         - virtualization
-
-  - type: dnf
-    remove:
-      packages:
-        - "*akonadi*"
-        - plymouth
-        - plasma-discover
 
   - type: dnf
     repos:
@@ -55,6 +39,17 @@ modules:
       packages:
         - code
 
+  - type: yafti
+    custom-flatpaks:
+      - Discord: com.discordapp.Discord
+      - Flatseal: com.github.tchx84.Flatseal
+      - Bottles: com.usebottles.bottles
+      - Steam: com.valvesoftware.Steam
+      - Rustdesk: com.rustdesk.RustDesk
+      - Localsend: org.localsend.localsend_app
+      - Remmina: org.remmina.Remmina
+      - Sqlite DB Browser: org.sqlitebrowser.sqlitebrowser
+
   - type: systemd
     system:
       disabled:
@@ -66,20 +61,20 @@ modules:
         - kde-baloo
         - plasma-baloorunner
 
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-      - scope: user
-
-  - type: yafti
-    custom-flatpaks:
-      - Discord: com.discordapp.Discord
-      - Flatseal: com.github.tchx84.Flatseal
-      - Bottles: com.usebottles.bottles
-      - Steam: com.valvesoftware.Steam
-      - Rustdesk: com.rustdesk.RustDesk
-      - Localsend: org.localsend.localsend_app
-      - Remmina: org.remmina.Remmina
-      - Sqlite DB Browser: org.sqlitebrowser.sqlitebrowser
+  - type: dnf
+    install:
+      packages:
+        - kate
+        - vim
+        - podman
+        - ripgrep
+        - uv
+        - scrcpy
+        - mpv
+        - syncplay
+        - ddclient
+        - croc
+        - steam-devices
+        - podman-docker
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

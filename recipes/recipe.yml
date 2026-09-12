@@ -59,6 +59,7 @@ modules:
     system:
       enabled:
         - strip-kargs
+        - sshd
       disabled:
         - plasmalogin
         - ModemManager
@@ -76,12 +77,20 @@ modules:
         - podman
         - ripgrep
         - uv
-        - scrcpy
         - mpv
         - syncplay
         - ddclient
         - croc
         - steam-devices
         - podman-docker
+        - markdownpart
+        - transmission-show
+        - jpegoptim
+        - qrencode
+        - innoextract
+        - bmap-tools
+        - mangohud
+        - gh
+        - 7zip
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

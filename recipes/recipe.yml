@@ -12,21 +12,16 @@ modules:
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
   - type: dnf
-    repos:
-      files:
-        - https://packages.microsoft.com/yumrepos/vscode/config.repo
     install:
       packages:
         - kate
         - vim
-        - code
         - podman
         - ripgrep
         - uv
         - scrcpy
         - mpv
         - syncplay
-        - unrar
         - ddclient
         - croc
         - steam-devices
@@ -39,12 +34,37 @@ modules:
         - "*akonadi*"
         - plymouth
         - plasma-discover
+
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - unrar
+
+  - type: dnf
+    repos:
+      files:
+        - https://packages.microsoft.com/yumrepos/vscode/config.repo
+    install:
+      packages:
+        - code
+
   - type: systemd
     system:
       disabled:
         - plasmalogin
         - ModemManager
         - geoclue
+    user:
+      masked:
+        - kde-baloo
+        - plasma-baloorunner
+
+  - type: default-flatpaks
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+      - scope: user
 
   - type: yafti
     custom-flatpaks:
@@ -56,10 +76,5 @@ modules:
       - Localsend: org.localsend.localsend_app
       - Remmina: org.remmina.Remmina
       - Sqlite DB Browser: org.sqlitebrowser.sqlitebrowser
-
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-      - scope: user
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

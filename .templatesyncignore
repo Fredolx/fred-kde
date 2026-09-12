@@ -4,4 +4,4 @@ README.md
 files/
 modules/
 .github/dependabot.yml
-.github/workflows/template-track.yml
+.github/workflows/*

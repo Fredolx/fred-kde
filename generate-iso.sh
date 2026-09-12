@@ -16,5 +16,6 @@ if ! command -v bluebuild &> /dev/null; then
         exit 1
     fi
 fi
+BLUEBUILD_BIN="$(command -v bluebuild)"
 
-sudo bluebuild generate-iso --iso-name fred-kde.iso image ghcr.io/fredolx/fred-kde:latest
+sudo "$BLUEBUILD_BIN" generate-iso --iso-name fred-kde.iso image ghcr.io/fredolx/fred-kde:latest

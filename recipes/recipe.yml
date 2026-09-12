@@ -11,15 +11,15 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  # Workaround: akonadi-server %postun fails if this unit file is missing
+  # Workaround: akonadi-server %postun in Fedora 44 fails because update-alternatives exits with code 2
   - type: script
     snippets:
-      - touch /usr/lib/systemd/system/akonadi_control.service
+      - rpm -qa "*akonadi*" | xargs rpm -e --nodeps --noscripts
+      - rm -rf /etc/xdg/akonadi /etc/alternatives/akonadiserverrc /usr/lib/systemd/system/akonadi_control.service
 
   - type: dnf
     remove:
       packages:
-        - "*akonadi*"
         - plymouth
         - plasma-discover
 

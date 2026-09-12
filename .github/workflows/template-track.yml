@@ -1,0 +1,23 @@
+name: Template Drift Sync
+
+on:
+  schedule:
+    - cron: "0 6 * * 5"
+  workflow_dispatch:
+
+jobs:
+  template-sync:
+    name: Sync Template Drift
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@v2
+        with:
+          source_repo_path: blue-build/template

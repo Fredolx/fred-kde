@@ -43,6 +43,8 @@ modules:
     system:
       disabled:
         - plasmalogin
+        - ModemManager
+        - geoclue
 
   - type: yafti
     custom-flatpaks:

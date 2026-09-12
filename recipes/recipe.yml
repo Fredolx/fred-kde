@@ -25,10 +25,15 @@ modules:
         - ddclient
         - croc
         - steam-devices
+        - podman-docker
+
+  - type: dnf
     group-install:
       packages:
         - development-tools
         - virtualization
+
+  - type: dnf
     remove:
       packages:
         - "*akonadi*"

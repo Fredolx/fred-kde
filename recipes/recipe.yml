@@ -21,6 +21,15 @@ modules:
         - vim
         - code
         - podman
+        - ripgrep
+        - uv
+        - scrcpy
+        - mpv
+        - syncplay
+        - unrar
+        - ddclient
+        - croc
+        - steam-devices
     group-install:
       packages:
         - development-tools

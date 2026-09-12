@@ -11,6 +11,11 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  # Workaround: akonadi-server %postun fails if this unit file is missing
+  - type: script
+    snippets:
+      - touch /usr/lib/systemd/system/akonadi_control.service
+
   - type: dnf
     remove:
       packages:

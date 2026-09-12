@@ -57,6 +57,8 @@ modules:
 
   - type: systemd
     system:
+      enabled:
+        - strip-kargs
       disabled:
         - plasmalogin
         - ModemManager

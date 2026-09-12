@@ -1,0 +1,14 @@
+[Unit]
+Description=Strip default installer kernel arguments
+Documentation=man:rpm-ostree(1)
+ConditionPathExists=!/var/lib/kargs-stripped
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/rpm-ostree kargs --delete-if-present=quiet --delete-if-present=rhgb
+ExecStartPost=/usr/bin/touch /var/lib/kargs-stripped
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

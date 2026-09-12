@@ -5,3 +5,5 @@ files/
 modules/
 .github/dependabot.yml
 .github/workflows/*
+generate-iso.sh
+validate.sh

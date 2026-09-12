@@ -32,6 +32,7 @@ modules:
       packages:
         - development-tools
         - virtualization
+        - c-development
 
   - type: dnf
     repos:
@@ -96,5 +97,28 @@ modules:
         - mangohud
         - gh
         - 7zip
+        - curl
+        - wget
+        - file
+
+  # Dev tools
+  - type: dnf
+    install:
+      packages:
+        # Tauri
+        - webkit2gtk4.1-devel
+        - openssl-devel
+        - libappindicator-gtk3-devel
+        - librsvg2-devel
+        - libxdo-devel
+        # Flutter
+        - clang
+        - cmake
+        - ninja-build
+        - pkgconf-pkg-config
+        - gtk3-devel
+        - libstdc++-devel
+        # Other:
+        - sqlite-devel
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

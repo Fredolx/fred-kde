@@ -93,6 +93,7 @@ modules:
         - git
         - wl-clipboard
         - gitui
+        - gamescope
 
   # Dev tools
   - type: dnf

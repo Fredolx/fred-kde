@@ -100,7 +100,8 @@ modules:
         - curl
         - wget
         - file
-
+        - pv
+        - git
   # Dev tools
   - type: dnf
     install:
@@ -118,6 +119,10 @@ modules:
         - pkgconf-pkg-config
         - gtk3-devel
         - libstdc++-devel
+        - xz
+        - mesa-libGLU-devel
+        - unzip
+        - zip
         # Other:
         - sqlite-devel
 

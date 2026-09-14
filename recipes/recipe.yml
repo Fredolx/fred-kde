@@ -49,16 +49,20 @@ modules:
       packages:
         - code
 
-  - type: yafti
-    custom-flatpaks:
-      - Discord: com.discordapp.Discord
-      - Flatseal: com.github.tchx84.Flatseal
-      - Bottles: com.usebottles.bottles
-      - Steam: com.valvesoftware.Steam
-      - Rustdesk: com.rustdesk.RustDesk
-      - Localsend: org.localsend.localsend_app
-      - Remmina: org.remmina.Remmina
-      - Sqlite DB Browser: org.sqlitebrowser.sqlitebrowser
+  - type: default-flatpaks
+    user:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      install:
+        - com.discordapp.Discord
+        - com.github.tchx84.Flatseal
+        - com.usebottles.bottles
+        - com.valvesoftware.Steam
+        - com.rustdesk.RustDesk
+        - org.localsend.localsend_app
+        - org.remmina.Remmina
+        - org.sqlitebrowser.sqlitebrowser
+        - io.podman_desktop.PodmanDesktop
 
   - type: systemd
     system:
@@ -102,6 +106,9 @@ modules:
         - file
         - pv
         - git
+        - wl-clipboard
+        - gitui
+
   # Dev tools
   - type: dnf
     install:

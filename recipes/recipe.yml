@@ -49,21 +49,6 @@ modules:
       packages:
         - code
 
-  - type: default-flatpaks@v1
-    user:
-      repo-name: flathub
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      install:
-        - com.discordapp.Discord
-        - com.github.tchx84.Flatseal
-        - com.usebottles.bottles
-        - com.valvesoftware.Steam
-        - com.rustdesk.RustDesk
-        - org.localsend.localsend_app
-        - org.remmina.Remmina
-        - org.sqlitebrowser.sqlitebrowser
-        - io.podman_desktop.PodmanDesktop
-
   - type: systemd
     system:
       enabled:

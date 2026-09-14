@@ -49,10 +49,10 @@ modules:
       packages:
         - code
 
-  - type: default-flatpaks
+  - type: default-flatpaks@v1
     user:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
       repo-name: flathub
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
       install:
         - com.discordapp.Discord
         - com.github.tchx84.Flatseal

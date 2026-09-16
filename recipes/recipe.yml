@@ -93,6 +93,8 @@ modules:
         - git
         - wl-clipboard
         - gitui
+        - waydroid
+        - lzip
 
   # Dev tools
   - type: dnf
